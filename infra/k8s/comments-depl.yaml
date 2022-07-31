@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: posts-depl
+  name: comments-depl
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: posts
+      app: comments
   template:
     metadata:
       labels:
-        app: posts
+        app: comments
     spec:
       containers:
-      - name: posts
-        image: undercontr/mstest-posts:latest
+      - name: comments
+        image: undercontr/mstest-comments:latest
         imagePullPolicy: Always
         resources:
           limits:
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: posts-clusterip-srv
+  name: comments-srv
 spec:
   selector:
-    app: posts
+    app: comments
   ports:
-  - name: posts
+  - name: comments
     protocol: TCP
-    port: 4000
-    targetPort: 4000
+    port: 4001
+    targetPort: 4001
