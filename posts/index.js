@@ -37,5 +37,5 @@ app.post("/events", (req, res) => {
 })
 
 app.listen(4000, () => {
-    console.log("Listening on 4000 on kube test 123")
+    console.log("Listening on 4000 on TEST check if work")
 })
