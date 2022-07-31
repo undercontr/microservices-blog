@@ -1,16 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: myapp
+  name: event-bus-depl
 spec:
+  replicas: 1
   selector:
     matchLabels:
-      app: myapp
+      app: event-bus
   template:
     metadata:
       labels:
-        app: myapp
+        app: event-bus
     spec:
       containers:
-      - name: myapp
-        image: <Image>
+      - name: event-bus
+        image: undercontr/mstest-event-bus
+        imagePullPolicy: Always
